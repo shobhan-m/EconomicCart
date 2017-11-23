@@ -58,10 +58,6 @@ public class PriceRequest {
 	}
 
 	/**
-	 * @return the userId
-	 */
-
-	/**
 	 * @return the fromPrice
 	 */
 	public float getFromPrice() {
@@ -136,29 +132,19 @@ public class PriceRequest {
 		return createDate;
 	}
 
-	/**
-	 * @param createDate
-	 *            the createDate to set
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
-	public void setCreateDate(Timestamp createDate) {
-		this.createDate = createDate;
+	@Override
+	public String toString() {
+		return "PriceRequest [requestId=" + requestId + ", productId=" + productId + ", emailId=" + emailId
+				+ ", fromPrice=" + fromPrice + ", toPrice=" + toPrice + ", selectDaysRange=" + selectDaysRange
+				+ ", comment=" + comment + ", createDate=" + createDate + ", toDate=" + toDate + "]";
 	}
 
-	/**
-	 * @return the toDate
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
-	public Timestamp getToDate() {
-		return toDate;
-	}
-
-	/**
-	 * @param toDate
-	 *            the toDate to set
-	 */
-	public void setToDate(Timestamp toDate) {
-		this.toDate = toDate;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -175,6 +161,9 @@ public class PriceRequest {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -217,11 +206,28 @@ public class PriceRequest {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "PriceRequest [requestId=" + requestId + ", productId=" + productId + ", emailId=" + emailId
-				+ ", fromPrice=" + fromPrice + ", toPrice=" + toPrice + ", selectDaysRange=" + selectDaysRange
-				+ ", comment=" + comment + ", createDate=" + createDate + ", toDate=" + toDate + "]";
+	/**
+	 * @param createDate
+	 *            the createDate to set
+	 */
+	public void setCreateDate(Timestamp createDate) {
+		this.createDate = createDate;
 	}
 
+	/**
+	 * @return the toDate
+	 */
+	public Timestamp getToDate() {
+		return toDate;
+	}
+
+	/**
+	 * @param toDate
+	 *            the toDate to set
+	 */
+	public void setToDate(Timestamp toDate) {
+		this.toDate = toDate;
+	}
+
+	
 }

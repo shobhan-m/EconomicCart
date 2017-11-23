@@ -20,5 +20,7 @@ public interface ProductService {
 	public User checkIfPriceIsLess(float price, String productId, int userId);
 
 	public List<Product> getAllProducts();
+	
+	public List<Product> getUpdatedProducts(String emailId);
 }
     

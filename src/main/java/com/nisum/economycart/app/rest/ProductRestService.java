@@ -3,6 +3,7 @@ package com.nisum.economycart.app.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,4 +21,9 @@ public class ProductRestService {
 	public List<Product> findAll() {
 	return productService.getAllProducts();
 	}
+	
+	@RequestMapping(value="/getUpdatedProducts/{emailId}",method = RequestMethod.GET)
+	public List<Product> getUpdatedProducts(@PathVariable ("emailId") String emailId) {
+		return productService.getUpdatedProducts(emailId);
+		}
 }
