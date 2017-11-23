@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nisum.economycart.app.domain.Product;
+import com.nisum.economycart.app.domain.User;
 import com.nisum.economycart.app.repositroy.ProductRepository;
+import com.nisum.economycart.app.repositroy.UserRepository;
 
 
 
@@ -22,6 +24,9 @@ public class ProductService {
 
     @Autowired
     private ProductRepository prodRepository;
+    
+    @Autowired
+    private UserRepository userRepository;
 
     
     
@@ -29,14 +34,16 @@ public class ProductService {
     }
 
 
-	public boolean checkIfPriceIsLess(float price, String productId) {
+	public User checkIfPriceIsLess(float price, String productId, long userId) {
 		// TODO Auto-generated method stub
 		
 		float oldprice = prodRepository.getPrice(productId);
 		
-		if(price<oldprice) return true;
-		else
-		return false;
+		User user = userRepository.findOne(userId);			
+		
+		if(price<oldprice) return user; 
+		else 
+		return null;
 	}
     
   }
