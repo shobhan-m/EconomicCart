@@ -9,73 +9,57 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "User")
+@Table(name="User")
 @Entity
-public class User implements Serializable {
+public class User implements Serializable{
 	/**
-	* 
-	*/
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer userId;
 	private String emailId;
 	private String name;
 	private String password;
 	private LocalDateTime loginDate;
 	private Integer activeStatus;
-
 	public Integer getUserId() {
 		return userId;
 	}
-
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-
 	public String getEmailId() {
 		return emailId;
 	}
-
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public LocalDateTime getLoginDate() {
 		return loginDate;
 	}
-
 	public void setLoginDate(LocalDateTime loginDate) {
 		this.loginDate = loginDate;
 	}
-
 	public Integer getActiveStatus() {
 		return activeStatus;
 	}
-
 	public void setActiveStatus(Integer activeStatus) {
 		this.activeStatus = activeStatus;
 	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -88,10 +72,6 @@ public class User implements Serializable {
 		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
 	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -133,14 +113,11 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", emailId=" + emailId + ", name=" + name + ", password=" + password
 				+ ", loginDate=" + loginDate + ", activeStatus=" + activeStatus + "]";
 	}
+
 	
 }
