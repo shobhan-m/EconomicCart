@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nisum.economycart.app.domain.User;
 import com.nisum.economycart.app.service.ProductService;
 
 
@@ -29,8 +30,8 @@ public class ProductOrderController {
 	
 	
 	@RequestMapping(value="/checkPrice", method=RequestMethod.GET)
-	public boolean checkIfPriceIsLess(float price, String productId) {
-		return productService.checkIfPriceIsLess(price, productId);
+	public User checkIfPriceIsLess(float price, String productId, long userId) {
+		return productService.checkIfPriceIsLess(price, productId, userId);
 	
 		
 	}
