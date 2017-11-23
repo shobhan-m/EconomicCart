@@ -2,7 +2,6 @@ package com.nisum.economycart.app.util;
 
 
 import java.util.Properties;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -44,7 +43,6 @@ import javax.mail.internet.MimeMessage;
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}
-
 	}  
  }
 
