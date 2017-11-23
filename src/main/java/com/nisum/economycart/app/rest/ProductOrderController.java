@@ -30,7 +30,7 @@ public class ProductOrderController {
 	
 	
 	@RequestMapping(value="/checkPrice", method=RequestMethod.GET)
-	public User checkIfPriceIsLess(float price, String productId, long userId) {
+	public User checkIfPriceIsLess(float price, String productId, int userId) {
 		return productService.checkIfPriceIsLess(price, productId, userId);
 	
 		
