@@ -32,20 +32,14 @@ import javax.mail.internet.MimeMessage;
         try {    
          MimeMessage message = new MimeMessage(session);    
          message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));    
-         message.setSubject(sub);    
-         message.setText(msg);    
-         //send message  
-         Transport.send(message);    
+         message.setSubject(sub); 
+         message.setSubject("HTML Message");  
+        message.setContent("<body><h1 style=color:blue sending html mail check</h1>"
+        		+ "<p>Hey u have a product in lesser range</p></body>","text/html");  
+		         Transport.send(message);    
          System.out.println("message sent successfully");    
         } catch (MessagingException e) {throw new RuntimeException(e);}    
            
   }  
  }
-////	public class EmailAlert{    
-////		 public static void main(String[] args) {    
-////		     //from,password,to,subject,message  
-////			 SendEmail.send("rajasekhar1515@gmail.com","Lucky123$","smamidala@nisum.com","EconomyCart...","Welcome");  
-////		     //change from, password and to  
-////		 }    
-//}  
 
