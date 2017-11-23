@@ -33,7 +33,7 @@ import javax.mail.internet.MimeMessage;
 			message.setSubject("HTML Message");
 
 			message.setContent(
-					"<h1><style=  color:pink> Hey...! Their is a blockbuster offers for you,  your Product avaialable in low price..</style></h1>"
+					"<h1><style=  color:pink> Hey...! There is a blockbuster offer for you in lower price..</style></h1>"
 							+ "<img src=\"https://static.jabong.com/cms/new-site//desktop_women-winter-store-23112017_desktop_1511437846604.jpg\r\n"
 							+ "\r\n" + "\">",
 					"text/html");
