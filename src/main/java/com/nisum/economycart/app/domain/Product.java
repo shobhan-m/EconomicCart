@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/main/java/com/nisum/economycart/app/model/Product.java
 package com.nisum.economycart.app.model;
 <<<<<<< HEAD
 
@@ -10,6 +11,9 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 =======
 >>>>>>> b5ae7178de115f90711170d64df9370d6a44101f
+=======
+package com.nisum.economycart.app.domain;
+>>>>>>> c936f0b17af5241e583b0e46fbc41c526d532fbc:src/main/java/com/nisum/economycart/app/domain/Product.java
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.Column;

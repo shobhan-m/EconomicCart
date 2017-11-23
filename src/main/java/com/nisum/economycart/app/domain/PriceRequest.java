@@ -1,4 +1,4 @@
-package com.nisum.economycart.app.model;
+package com.nisum.economycart.app.domain;
 
 import java.time.LocalDateTime;
 
