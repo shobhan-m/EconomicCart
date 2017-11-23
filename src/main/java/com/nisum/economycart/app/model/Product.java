@@ -2,7 +2,6 @@ package com.nisum.economycart.app.model;
 
 import javax.persistence.*;
 
-import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,7 +12,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "product")
 public class Product  implements Serializable{
-
 
 	@Id
 	private String id;
