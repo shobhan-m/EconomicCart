@@ -1,67 +1,146 @@
 package com.nisum.economycart.app.model;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+@Table(name = "User")
 @Entity
-@Table(name="user")
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
-	
+public class User implements Serializable {
+	/**
+	* 
+	*/
+	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer userId;
+	private String emailId;
+	private String name;
+	private String password;
+	private LocalDateTime loginDate;
+	private Integer activeStatus;
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public LocalDateTime getLoginDate() {
+		return loginDate;
+	}
+
+	public void setLoginDate(LocalDateTime loginDate) {
+		this.loginDate = loginDate;
+	}
+
+	public Integer getActiveStatus() {
+		return activeStatus;
+	}
+
+	public void setActiveStatus(Integer activeStatus) {
+		this.activeStatus = activeStatus;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((activeStatus == null) ? 0 : activeStatus.hashCode());
+		result = prime * result + ((emailId == null) ? 0 : emailId.hashCode());
+		result = prime * result + ((loginDate == null) ? 0 : loginDate.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (activeStatus == null) {
+			if (other.activeStatus != null)
+				return false;
+		} else if (!activeStatus.equals(other.activeStatus))
+			return false;
+		if (emailId == null) {
+			if (other.emailId != null)
+				return false;
+		} else if (!emailId.equals(other.emailId))
+			return false;
+		if (loginDate == null) {
+			if (other.loginDate != null)
+				return false;
+		} else if (!loginDate.equals(other.loginDate))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", emailId=" + emailId + ", name=" + name + ", password=" + password
+				+ ", loginDate=" + loginDate + ", activeStatus=" + activeStatus + "]";
+	}
 	
-	private String firstName;
-	
-	private String lastName;
-	
-	private String email;
-	
-	private String mobileNumber;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
 }
