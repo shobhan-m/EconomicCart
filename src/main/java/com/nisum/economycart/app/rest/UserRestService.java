@@ -21,12 +21,10 @@ public class UserRestService {
 	
 	static EmailAccount emailAccount;
 	
-	//MailSender mailSender;
-	
 
 	@RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
 	public String sendEmail(User user) throws Exception {
-
+		
 		user = new User();
 		user.setName("Dheeraj");
 		EmailAlert emailAlert = new EmailAlert();

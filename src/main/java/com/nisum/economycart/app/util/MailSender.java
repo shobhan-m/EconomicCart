@@ -12,9 +12,7 @@ import javax.mail.internet.*;
 public class MailSender {
 
 	public static String messageBody(String userName){
-
 		StringBuilder sb = new StringBuilder();
-
 		sb.append("<html><head></head><title></title>");
 		sb.append("<body style='font-size:12px;font-family:Trebuchet MS;'>");
 		sb.append("<i>Hi"+"  "+userName+","+"</i>");
