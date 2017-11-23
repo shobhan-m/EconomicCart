@@ -52,7 +52,7 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getAllProducts() {
 		return (List<Product>) prodRepository.findAll();
 	}
-	
+	//cron job
 	public  void cronCall() {
 		System.out.println(prodRepository +"user "+userRepository+"service"+userService);
 		
