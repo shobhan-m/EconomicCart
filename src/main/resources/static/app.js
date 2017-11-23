@@ -1,47 +1,63 @@
-var myapp = angular.module('shoppingCart',['ui.router']);
+var myapp = angular.module('shoppingCart', [ 'ui.router' ]);
 
-myapp.config(function($stateProvider,$urlRouterProvider) {
-  
-  $stateProvider
-    .state('login', {
-      url: "/login",
-      templateUrl: "partials/login.html",
-      controller: 'login'
-    })
-    
-    .state('productslist', {
-      url: "/productslist",
-      templateUrl: "partials/productslist.html",
-      controller: 'productslist'
-    });
-    $urlRouterProvider.otherwise("/login");
+myapp.config(function($stateProvider, $urlRouterProvider) {
+
+	$stateProvider.state('login', {
+		url : "/login",
+		templateUrl : "partials/login.html",
+		controller : 'login'
+	})
+
+	.state('productslist', {
+		url : "/productslist",
+		templateUrl : "partials/productslist.html",
+		controller : 'productslist'
+	});
+	$urlRouterProvider.otherwise("/login");
 });
 
-myapp.run(function ($rootScope){
-	
+myapp.run(function($rootScope) {
+
 	$rootScope.hello = true;
-	
+
 });
 
-myapp.controller('login',function ($scope,$state,$rootScope,$http){
-	$scope.fnLogin = function(){
-		alert(12345)
+myapp.controller('login', function($scope, $state, $rootScope, $http) {
+	$scope.fnLogin = function() {
 		var emailId = $scope.emailId;
 		var pwd = $scope.pwd;
-		
+
 		$http.get("v1/ecart/validateUser/test@nisum.com").success(
 				function(response) {
-					alert(response);
+					//fnLoadProductDetails();
+					$state.go("productslist");
 				}).error(function(response) {
-			alert("error "+JSON.stringify(response));
+			// alert("error "+JSON.stringify(response));
 		})
+
 		
-		
-		$state.go("productslist");
 	}
-	
+
+	$scope.fnLoadProductDetails = function() {
+		// http://localhost:8080/ECart/v1/ecart/product
+		$http.get("v1/ecart/product").success(function(response) {
+			// fnLoadProductDetails();
+			$scope.products = response;
+		}).error(function(response) {
+			// alert("error "+JSON.stringify(response));
+		})
+	}
+
 });
 
-myapp.controller('productslist',function ($scope,$state,$rootScope){
+myapp.controller('productslist', function($scope, $state, $rootScope, $http) {
+
 	
+	
+	$http.get("v1/ecart/product").success(function(response) {
+		// fnLoadProductDetails();
+		$scope.products = response;
+	}).error(function(response) {
+		// alert("error "+JSON.stringify(response));
+	})
 });
