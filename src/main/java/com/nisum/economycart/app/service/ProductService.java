@@ -34,7 +34,7 @@ public class ProductService {
     }
 
 
-	public User checkIfPriceIsLess(float price, String productId, long userId) {
+	public User checkIfPriceIsLess(float price, String productId, int userId) {
 		// TODO Auto-generated method stub
 		
 		float oldprice = prodRepository.getPrice(productId);
