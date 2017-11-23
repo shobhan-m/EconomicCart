@@ -1,0 +1,67 @@
+<style>
+    #email{
+	  margin-bottom:10px;
+	}
+	
+	#password{
+	 margin-bottom:10px;
+	}
+	
+	#guest{
+	 margin-top: 5px;
+    margin-left: 79px;
+    font-size: 18px
+	}
+    
+    hr{
+    	transform: rotate(90deg);
+    	margin-top: 58%;
+    }
+</style>
+
+
+    <div class="row" ng-controller="login">
+        <div class="col-lg-3 col-md-3">
+            <h1 class="text-center login-title">Sign In</h1>
+            <div class="account-wall">
+                <form class="form-signin">
+                <input type="text" class="form-control" placeholder="Email" required autofocus id = "email" data-ng-model="emailId">
+                <input type="password" class="form-control" placeholder="Password" required id = "password" data-ng-model="pwd">
+                <button class="btn btn-lg btn-primary btn-block" type="submit" id = "submit" data-ng-click="fnLogin()">
+                    Login</button>
+                </form>
+            </div>
+        </div>
+        <div class = "col-lg-3 col-md-3"><hr></div>
+        <div class = "col-lg-3  col-md-3">
+         <h1 class="text-center login-title">Guest User?</h1>
+         <a href="#" class="need-help" id = "guest">Click here</a>
+                </form>
+        </div>
+    </div>
+
+<script>
+/* $(document).ready(function(){
+$("#submit").click(function(){
+        login();
+    });
+}) */
+
+/* function login(){
+console.log("login");
+} */
+
+/* function fnLogin(){
+	alert(123)
+	var emailId = $("#email").val();
+	var pwd = $("#password").val();
+	
+	$http.get("localhost:8080/ECart/v1/ecart/validateUser/test@nisum.com").success(
+			function(response) {
+				alert(response);
+			}).error(function(response) {
+		alert("error "+response);
+	})
+	
+} */
+</script>
