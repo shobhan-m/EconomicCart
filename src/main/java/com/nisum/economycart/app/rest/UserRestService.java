@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.nisum.economycart.app.domain.User;
 import com.nisum.economycart.app.service.EmailAccount;
 import com.nisum.economycart.app.service.UserService;
 import com.nisum.economycart.app.util.EmailAlert;
+import com.nisum.economycart.app.util.MailSender;
 
 @RestController
 @RequestMapping(value = "/v1/ecart")
@@ -18,14 +20,19 @@ public class UserRestService {
 	UserService userService;
 	
 	static EmailAccount emailAccount;
+	
+	//MailSender mailSender;
+	
 
 	@RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
-	public String sendEmail() throws Exception {
+	public String sendEmail(User user) throws Exception {
 
+		user = new User();
+		user.setName("Dheeraj");
 		EmailAlert emailAlert = new EmailAlert();
 		emailAlert.send(emailAccount.getAdminemail(), emailAccount.getAdminpassword(), 
 				emailAccount.getToEmailId(),
-				emailAccount.getSubject(), "Welcome message... ");
+				emailAccount.getSubject(), MailSender.messageBody(user.getName()));
 
 		return "Success";
 	}
