@@ -1,6 +1,5 @@
 package com.nisum.economycart.app.service;
 
-import org.springframework.stereotype.Service;
 
 import com.nisum.economycart.app.domain.PriceRequest;
 
