@@ -28,15 +28,16 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 	
-	public String sendEmail(User user) {
+	public String sendEmail(User user,float changedprice) {
 		System.out.println("In sendEmail");
 		user = new User();
+		String cp = changedprice + "";
 		user.setName("Dheeraj");
 		EmailAlert emailAlert = new EmailAlert();
 		//System.out.println("email and password are......"+ emailAccount.getAdminemail() + emailAccount.getAdminpassword());
 		emailAlert.send("smamidala@nisum.com", "Orange#1234", 
 				"dsingh@nisum.com",
-				"Welcome to Economy cart...", MailSender.messageBody(user.getName()));
+				"Welcome to Economy cart...", cp);
 
 		return "Success";
 	}

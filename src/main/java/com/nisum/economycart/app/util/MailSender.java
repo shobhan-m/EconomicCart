@@ -17,7 +17,7 @@ public class MailSender {
 		sb.append("<body style='font-size:12px;font-family:Trebuchet MS;'>");
 		sb.append("<i>Hi"+"  "+userName+","+"</i>");
 		sb.append("<br><br>");
-		sb.append("<i> Now Price is available at lowest Price</i>");
+		sb.append("<i> Now Price is available at lowest Price </i>");
 		sb.append("<br><br>");
 		sb.append("<i>This is an auto generated e-mail. Thanking you.</i>");
 		sb.append("<br><br>");

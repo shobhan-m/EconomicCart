@@ -73,7 +73,7 @@ public class ProductServiceImpl implements ProductService {
 				users.add(user);
 				System.out.println("email id is..."+user.getEmailId());
 				
-				userService.sendEmail(users.get(0));
+				userService.sendEmail(users.get(0), changedprice);
 
 			}
 		}
