@@ -1,4 +1,4 @@
-package com.nisum.economycart.app.model;
+package com.nisum.economycart.app.domain;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
