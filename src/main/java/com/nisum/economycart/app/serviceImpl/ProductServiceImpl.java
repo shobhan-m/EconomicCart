@@ -1,7 +1,6 @@
 package com.nisum.economycart.app.serviceImpl;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -16,6 +15,7 @@ import com.nisum.economycart.app.repositroy.ProductRepository;
 import com.nisum.economycart.app.repositroy.UserRepository;
 import com.nisum.economycart.app.service.ProductService;
 
+import com.nisum.economycart.app.service.UserService;
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -29,6 +29,12 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	PriceRequestRepository priceRequestRepository;
+
+	@Autowired
+	private PriceRequestRepository priceRepository;
+	
+	@Autowired
+	private UserService userService;
 
 	public User checkIfPriceIsLess(float price, String productId, int userId) {
 		// TODO Auto-generated method stub
@@ -45,6 +51,32 @@ public class ProductServiceImpl implements ProductService {
 
 	public List<Product> getAllProducts() {
 		return (List<Product>) prodRepository.findAll();
+	}
+	
+	public  void cronCall() {
+		System.out.println(prodRepository +"user "+userRepository+"service"+userService);
+		
+		List<Product> productlist = (ArrayList<Product>) prodRepository.findAll();
+
+		List<User> users = new ArrayList<User>();
+
+		for (Product p : productlist) {
+
+			float changedprice = p.getProductPrice();
+			float fromprice = priceRepository.findPrice(p.getProductId());
+
+			if (changedprice < fromprice) {
+				String emailId = priceRepository.findUser(p.getProductId());
+
+				User user = userRepository.findByEmailId(emailId);
+
+				users.add(user);
+				System.out.println("email id is..."+user.getEmailId());
+				
+				userService.sendEmail(users.get(0));
+
+			}
+		}
 	}
 
 	@Override

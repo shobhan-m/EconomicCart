@@ -21,6 +21,10 @@ public interface ProductService {
 
 	public List<Product> getAllProducts();
 	
+
 	public List<Product> getUpdatedProducts(String emailId);
+
+	public void cronCall();
+
 }
     

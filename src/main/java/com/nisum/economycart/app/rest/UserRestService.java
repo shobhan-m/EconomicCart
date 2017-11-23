@@ -12,6 +12,7 @@ import com.nisum.economycart.app.service.UserService;
 import com.nisum.economycart.app.util.EmailAlert;
 import com.nisum.economycart.app.util.MailSender;
 
+
 @RestController
 @RequestMapping(value = "/v1/ecart")
 public class UserRestService {
@@ -37,6 +38,7 @@ public class UserRestService {
 
 	@RequestMapping(value = "/validateUser/{emailId}", method = RequestMethod.GET)
 	public boolean validateUser(@PathVariable("emailId") String emailId) {
+		System.out.println("validate ... "+emailId);
 		boolean validUser = userService.validateUser(emailId);
 		return validUser;
 	}

@@ -22,8 +22,15 @@ public class ProductRestService {
 	return productService.getAllProducts();
 	}
 	
+
 	@RequestMapping(value="/getUpdatedProducts/{emailId}",method = RequestMethod.GET)
 	public List<Product> getUpdatedProducts(@PathVariable ("emailId") String emailId) {
 		return productService.getUpdatedProducts(emailId);
 		}
+
+	@RequestMapping(value="/test", method=RequestMethod.GET) 
+	public void callCron() {
+		productService.cronCall();
+	}
+
 }

@@ -5,13 +5,18 @@ import org.springframework.stereotype.Service;
 
 import com.nisum.economycart.app.domain.User;
 import com.nisum.economycart.app.repositroy.UserRepository;
+import com.nisum.economycart.app.service.EmailAccount;
 import com.nisum.economycart.app.service.UserService;
+import com.nisum.economycart.app.util.EmailAlert;
+import com.nisum.economycart.app.util.MailSender;
 
 @Service
 public class UserServiceImpl implements UserService{
 
+	static EmailAccount emailAccount;
+	
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 	@Override
 	public boolean validateUser(String emailId) {
 		emailId = emailId + ".com";
@@ -21,6 +26,19 @@ public class UserServiceImpl implements UserService{
 		} else {
 			return false;
 		}
+	}
+	
+	public String sendEmail(User user) {
+		System.out.println("In sendEmail");
+		user = new User();
+		user.setName("Dheeraj");
+		EmailAlert emailAlert = new EmailAlert();
+		//System.out.println("email and password are......"+ emailAccount.getAdminemail() + emailAccount.getAdminpassword());
+		emailAlert.send("smamidala@nisum.com", "Orange#1234", 
+				"dsingh@nisum.com",
+				"Welcome to Economy cart...", MailSender.messageBody(user.getName()));
+
+		return "Success";
 	}
 
 }

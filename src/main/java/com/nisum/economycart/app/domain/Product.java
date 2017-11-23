@@ -1,5 +1,6 @@
 package com.nisum.economycart.app.domain;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,9 +20,8 @@ public class Product implements Serializable {
         private  int productId;
         private String  productName;    
         private float productPrice;
-            private LocalDateTime createdDate; 
+            private Timestamp createdDate; 
             private String  description;
-        private int categoryId;
         private String  productImage;
         
         /**
@@ -63,13 +63,13 @@ public class Product implements Serializable {
         /**
          * @return the createdDate
          */
-        public LocalDateTime getCreatedDate() {
+        public Timestamp getCreatedDate() {
             return createdDate;
         }
         /**
          * @param createdDate the createdDate to set
          */
-        public void setCreatedDate(LocalDateTime createdDate) {
+        public void setCreatedDate(Timestamp createdDate) {
             this.createdDate = createdDate;
         }
         /**
@@ -84,18 +84,7 @@ public class Product implements Serializable {
         public void setDescription(String description) {
             this.description = description;
         }
-        /**
-         * @return the categoryId
-         */
-        public int getCategoryId() {
-            return categoryId;
-        }
-        /**
-         * @param categoryId the categoryId to set
-         */
-        public void setCategoryId(int categoryId) {
-            this.categoryId = categoryId;
-        }
+        
         /**
          * @return the productImage
          */
@@ -122,7 +111,7 @@ public class Product implements Serializable {
         public int hashCode() {
             final int prime = 31;
             int result = 1;
-            result = prime * result + categoryId;
+            
             result = prime * result + ((createdDate == null) ? 0 : createdDate.hashCode());
             result = prime * result + ((description == null) ? 0 : description.hashCode());
             result = prime * result + productId;
@@ -143,8 +132,7 @@ public class Product implements Serializable {
             if (getClass() != obj.getClass())
                 return false;
             Product other = (Product) obj;
-            if (categoryId != other.categoryId)
-                return false;
+            
             if (createdDate == null) {
                 if (other.createdDate != null)
                     return false;
@@ -177,7 +165,7 @@ public class Product implements Serializable {
         @Override
         public String toString() {
             return "Product [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
-                    + ", createdDate=" + createdDate + ", description=" + description + ", categoryId=" + categoryId
+                    + ", createdDate=" + createdDate + ", description=" + description 
                     + ", productImage=" + productImage + "]";
         }
     
