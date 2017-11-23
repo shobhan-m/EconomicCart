@@ -60,4 +60,37 @@ myapp.controller('productslist', function($scope, $state, $rootScope, $http) {
 	}).error(function(response) {
 		// alert("error "+JSON.stringify(response));
 	})
+	
+	
+	
+	$scope.addwatch = function(product){
+		debugger;
+		//var PriceRequest  = { "productId":product.productId, "emailId":"dhirajkishores@gmail.com", "fromPrice":50,"toPrice":product.productPrice,"selectDaysRange":10,"comment":"Product watched" };
+//		PriceRequest.productId = product.productId;
+////		PriceRequest.emailId = $scope.myEmail;
+//		PriceRequest.emailId = "dhirajkishores@gmail.com";
+////		PriceRequest.fromPrice = $scope.priceFrom;
+//		PriceRequest.fromPrice = 50;
+//		PriceRequest.toPrice = product.productPrice;
+//		PriceRequest.selectDaysRange = 10;
+//		PriceRequest.comment = "Product watched";
+		//console.log(JSON.stringify(PriceRequest))
+		$http.get("e1/priceRequest/getPriceRequest").success(
+
+		function(response) {
+			alert("Product add to watched Successfully")
+			$state.go("productslist");
+				angular.element('.closeone').trigger('click');
+		//fnLoadProductDetails();
+
+		console.log(responce);
+
+		}).error(function(response) {
+
+		//alert("error "+JSON.stringify(response));
+
+		}) 
+	
+	}
+	
 });
