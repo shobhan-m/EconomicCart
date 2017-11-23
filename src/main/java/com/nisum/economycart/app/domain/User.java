@@ -1,8 +1,10 @@
 package com.nisum.economycart.app.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,17 +19,18 @@ public class User implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
+	@Column(name = "userId")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer userId;
+	private int userId;
 	private String emailId;
 	private String name;
 	private String password;
-	private LocalDateTime loginDate;
+	private Timestamp loginDate;
 	private Integer activeStatus;
-	public Integer getUserId() {
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(Integer userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getEmailId() {
@@ -48,10 +51,10 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public LocalDateTime getLoginDate() {
+	public Timestamp getLoginDate() {
 		return loginDate;
 	}
-	public void setLoginDate(LocalDateTime loginDate) {
+	public void setLoginDate(Timestamp loginDate) {
 		this.loginDate = loginDate;
 	}
 	public Integer getActiveStatus() {
@@ -60,18 +63,19 @@ public class User implements Serializable{
 	public void setActiveStatus(Integer activeStatus) {
 		this.activeStatus = activeStatus;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((activeStatus == null) ? 0 : activeStatus.hashCode());
-		result = prime * result + ((emailId == null) ? 0 : emailId.hashCode());
-		result = prime * result + ((loginDate == null) ? 0 : loginDate.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + userId;
 		return result;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -81,42 +85,16 @@ public class User implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (activeStatus == null) {
-			if (other.activeStatus != null)
-				return false;
-		} else if (!activeStatus.equals(other.activeStatus))
-			return false;
-		if (emailId == null) {
-			if (other.emailId != null)
-				return false;
-		} else if (!emailId.equals(other.emailId))
-			return false;
-		if (loginDate == null) {
-			if (other.loginDate != null)
-				return false;
-		} else if (!loginDate.equals(other.loginDate))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (userId == null) {
-			if (other.userId != null)
-				return false;
-		} else if (!userId.equals(other.userId))
+		if (userId != other.userId)
 			return false;
 		return true;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", emailId=" + emailId + ", name=" + name + ", password=" + password
-				+ ", loginDate=" + loginDate + ", activeStatus=" + activeStatus + "]";
+		return "User [userId=" + userId + "]";
 	}
 
 	
