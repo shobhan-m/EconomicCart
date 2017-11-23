@@ -1,22 +1,17 @@
 package com.nisum.economycart.app.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.Serializable;
-import java.util.Set;
 
-@Document
+@Entity
+@Table(name = "product")
 public class Product  implements Serializable{
 
 
@@ -31,8 +26,6 @@ public class Product  implements Serializable{
 
 	private Integer quantity;
 
-	@Indexed(unique=true)
-	@NotBlank
 	private String productId;
 
 	//private Orders orders;

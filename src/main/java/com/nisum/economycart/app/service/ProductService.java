@@ -6,10 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.nisum.sampleapp.model.Product;
-import com.nisum.sampleapp.model.SampleProduct;
-import com.nisum.sampleapp.repositroy.ProductRepository;
-import com.nisum.sampleapp.repositroy.SampleProdRepository;
+
+import com.nisum.economycart.app.model.Product;
+import com.nisum.economycart.app.repositroy.ProductRepository;
+
 
 
 /*
@@ -23,16 +23,12 @@ public class ProductService {
     @Autowired
     private ProductRepository prodRepository;
 
-    @Autowired
-    private SampleProdRepository sampleRepo;
+    
     
     public ProductService() {
     }
 
-    public Product addProduct(Product product) {
-        return prodRepository.save(product);
-    }
-
+  
     
     public List<Product> getAllProducts() {
         List<Product> pageOfProducts = (List<Product>) prodRepository.findAll();
@@ -68,8 +64,5 @@ public class ProductService {
     public Product getProduct(String id) {
         return prodRepository.findOne(id);
     }
-    public SampleProduct addSampleProduct(SampleProduct product) {
-        return sampleRepo.save(product);
-    }
-
+    
   }
